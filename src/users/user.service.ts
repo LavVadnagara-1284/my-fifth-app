@@ -8,16 +8,19 @@ export class UserService {
       username: 'testuser1',
       password: 'secret1',
       email: 'tu1@test.com',
+      bio: 'This is a test user 1 bio.'
     },
     {
       username: 'testuser2',
       password: 'secret2',
       email: 'tu2@test.com',
+      bio: 'This is a test user 2 bio.'
     },
     {
       username: 'testuser3',
       password: 'secret3',
       email: 'tu3@test.com',
+      bio: 'This is a test user 3 bio.'
     },
   ];
 
