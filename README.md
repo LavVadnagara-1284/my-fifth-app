@@ -1,3 +1,60 @@
+# My Fifth App
+
+## Overview
+This project is a **NestJS application** that demonstrates authentication using **Passport.js** with a local strategy. It features a basic **user service** and a **guarded route** in the app controller that requires authentication.
+
+## Technologies Used
+- **NestJS** - Framework for building scalable server-side applications.
+- **Passport.js** - Authentication middleware.
+- **TypeScript** - Type safety and modern JavaScript features.
+
+---
+
+## Installation
+
+### Clone the repository:
+   ```bash
+   git clone <repo-url>
+   cd my-fifth-app
+   ```
+---
+
+## Code Flow
+
+### 1. **User Service (`user.service.ts`)**
+- Stores a **mock user list**.
+- Provides a method `getUserByName(username: string): User | undefined` to fetch users.
+
+### 2. **Passport Local Strategy (`passport.local.strategy.ts`)**
+- Injects `UserService` to fetch users.
+- Implements `validate(username, password)`, checking if user credentials match.
+- Throws `UnauthorizedException` if authentication fails.
+
+### 3. **Auth Module (`auth.module.ts`)**
+- Registers `PassportLocalStrategy` and `UserService`.
+
+### 4. **App Controller (`app.controller.ts`)**
+- Defines an authenticated `GET` endpoint using `AuthGuard('local')`.
+- If authentication succeeds, returns user details.
+
+---
+
+## API Endpoints
+
+### **1. Protected Route**
+#### `GET /app`
+- **Requires authentication** using the **local strategy**.
+- **Response:**
+  ```json
+  {
+    "username": "testuser1",
+    "email": "tu1@test.com",
+    "bio": "This is a test user 1 bio."
+  }
+  ```
+
+---
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
